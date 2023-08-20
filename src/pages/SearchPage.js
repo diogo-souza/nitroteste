@@ -39,7 +39,7 @@ function SearchPage() {
                         }
                     }}
                 />
-                {console.log(foundOrder)}
+
                 {foundOrder === null ?
 
                     <><div className="name-container">
