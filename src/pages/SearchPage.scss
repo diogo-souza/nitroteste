@@ -75,6 +75,25 @@
     color: #0066b8;
   }
 
+  .error-message {
+    text-align: center;
+    font-size: 22px;
+    color: red;
+    font-weight: 500;
+    margin-top: 90px;
+  
+    // Style for the <br> tag
+    br {
+      content: '';
+      display: block;
+      margin-bottom: 10px; // Adjust this value to control the space between lines
+    }
+
+    .spaceBetween{
+      margin-top: 30px;
+    }
+  }
+
   @media (max-width: 768px) {
     .name-container {
       flex-direction: column;
@@ -116,7 +135,11 @@
     }
 
     .name-with-description-valor {
-      order: 4;
+      display: none;
+    }
+
+    .error-message {
+      margin-top: 20px;
     }
   }
 }

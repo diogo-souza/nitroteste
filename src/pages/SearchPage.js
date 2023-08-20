@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 //Importing SCSS Style
 import './SearchPage.scss';
@@ -6,76 +6,92 @@ import './SearchPage.scss';
 //Importing Logo
 import logo from '../assets/logo.png';
 
+import dados from '../data/dados.json';
+
 function SearchPage() {
 
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [searchValue, setSearchValue] = useState('');
+    const [foundOrder, setFoundOrder] = useState(null);
 
-    useEffect(() => {
-        const handleResize = () => {
-            setWindowWidth(window.innerWidth);
-        };
-
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []); 
+    const handleSearch = () => {
+        const orderToFind = dados.encomendas.find(order => order.numero === searchValue);
+        setFoundOrder(orderToFind);
+    };
 
     return (
         <div>
-            {windowWidth > 768 && (
-                <div className="container">
-                    <img src={logo} alt="Imagem" className="image" />
-                    <p className="above-search">Consulte sua encomenda:</p>
-                    <input className="search-bar" placeholder='Digite o número do pedido' />
-                    <div className="name-container">
+              <div className="container">
+                <img src={logo} alt="Imagem" className="image" />
+                <p className="above-search">Consulte sua encomenda:</p>
+                <input
+                    type='text'
+                    className="search-bar"
+                    placeholder='Digite o número do pedido'
+                    value={searchValue}
+                    onChange={(e) => setSearchValue(e.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            handleSearch();
+                        }
+                    }}
+                />
+                {console.log(foundOrder)}
+                {foundOrder === null ?
+
+                    <><div className="name-container">
                         <div className="name-with-description-client">
                             <div className="left-name">Nome do Cliente</div>
-                            <div className="description">Ordem e nome do cliente</div>
+                            <div className="description">Número de ordem e nome do cliente</div>
                         </div>
                         <div className="name-with-description-valor">
                             <div className="right-name">R$ 42,00</div>
                             <div className="description">Valor do Pedido</div>
                         </div>
-                    </div>
-                    <div className="name-container">
-                        <div className="name-with-description-data">
-                            <div className="left-name">25/09/2018</div>
-                            <div className="description">Data do pedido</div>
-                        </div>
-                        <div className="name-with-description-situacao">
-                            <div className="right-name">Entregue | Entregar</div>
-                            <div className="description">Situação da encomenda</div>
-                        </div>
-                    </div>
-                </div>
-            )}
-            {windowWidth <= 768 && (
-                <div className="container">
-                    <img src={logo} alt="Imagem" className="image" />
-                    <p className="above-search">Consulte sua encomenda:</p>
-                    <input className="search-bar" placeholder='Digite o número do pedido' />
-                    <div className="name-with-description-client">
-                        <div className="left-name">Nome do Cliente</div>
-                        <div className="description">Ordem e nome do cliente</div>
-                    </div>
-                    <div className="name-with-description-valor">
-                        <div className="right-name">R$ 42,00</div>
-                        <div className="description">Valor do Pedido</div>
-                    </div>
-                    <div className="name-with-description-data">
-                        <div className="left-name">25/09/2018</div>
-                        <div className="description">Data do pedido</div>
-                    </div>
-                    <div className="name-with-description-situacao">
-                        <div className="right-name">Entregue | Entregar</div>
-                        <div className="description">Situação da encomenda</div>
-                    </div>
-                </div>
-            )}
-        </div>
-    );
-}
+                    </div><div className="name-container">
+                            <div className="name-with-description-data">
+                                <div className="left-name">25/09/2018</div>
+                                <div className="description">Data do pedido</div>
+                            </div>
+                            <div className="name-with-description-situacao">
+                                <div className="right-name">Entregue | Entregar</div>
+                                <div className="description">Situação da encomenda</div>
+                            </div>
+                        </div></>
 
+                    : foundOrder === undefined ?
+
+                        <div className="error-message">
+                            Encomenda<br />
+                            não encontrada!<br /><br />
+
+                            <div className="spaceBetween">Procure novamente</div>
+                        </div>
+
+                        :
+
+                        <><div className="name-container">
+                            <div className="name-with-description-client">
+                                <div className="left-name">Nome do Cliente</div>
+                                <div className="description">N°{foundOrder.cliente.id} {foundOrder.cliente.nome}</div>
+                            </div>
+                            <div className="name-with-description-valor">
+                                <div className="right-name">R$ {foundOrder.valor}</div>
+                                <div className="description">Valor do Pedido</div>
+                            </div>
+                        </div><div className="name-container">
+                                <div className="name-with-description-data">
+                                    <div className="left-name">{foundOrder.data}</div>
+                                    <div className="description">Data do pedido</div>
+                                </div>
+                                <div className="name-with-description-situacao">
+                                    <div className="right-name">{foundOrder.entregue === false ? 'Entregar' : 'Entregue'}</div>
+                                    <div className="description">Situação da encomenda</div>
+                                </div>
+                            </div></>
+
+                }
+            </div>
+            </div>
+        )
+    }
 export default SearchPage;
