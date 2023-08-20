@@ -6,7 +6,11 @@ import './SearchPage.scss';
 //Importing Logo
 import logo from '../assets/logo.png';
 
+//Importing Json Data
 import dados from '../data/dados.json';
+
+//Importing Data Formater
+import DataFormatter from '../components/DataFormatter';
 
 function SearchPage() {
 
@@ -20,7 +24,7 @@ function SearchPage() {
 
     return (
         <div>
-              <div className="container">
+            <div className="container">
                 <img src={logo} alt="Imagem" className="image" />
                 <p className="above-search">Consulte sua encomenda:</p>
                 <input
@@ -80,7 +84,7 @@ function SearchPage() {
                             </div>
                         </div><div className="name-container">
                                 <div className="name-with-description-data">
-                                    <div className="left-name">{foundOrder.data}</div>
+                                    <div className="left-name"><DataFormatter originalDate={foundOrder.data} /></div>
                                     <div className="description">Data do pedido</div>
                                 </div>
                                 <div className="name-with-description-situacao">
@@ -91,7 +95,7 @@ function SearchPage() {
 
                 }
             </div>
-            </div>
-        )
-    }
+        </div>
+    )
+}
 export default SearchPage;
