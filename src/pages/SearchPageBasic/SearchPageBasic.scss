@@ -1,0 +1,146 @@
+.containerBasic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+  
+    .above-search {
+      font-size: 16px;
+      color: #00669f;
+      margin-bottom: 10px;
+      font-weight: 700;
+      font-style: italic;
+    }
+  
+    .name-with-description-client,
+    .name-with-description-valor,
+    .name-with-description-data,
+    .name-with-description-situacao {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 80px 0;
+      margin-right: -70px;
+      margin-left: -60px;
+      width: 405px;
+    }
+  
+    .description {
+      font-size: 16px;
+      color: #0088d1;
+      margin-top: 5px;
+      font-style: italic;
+    }
+  
+    .image {
+      margin-bottom: 50px;
+    }
+  
+    .search-bar {
+      border: 3px solid #a5ce25;
+      border-radius: 20px;
+      padding: 5px;
+      width: 80%;
+      max-width: 300px;
+      font-size: 16px;
+      color: #333;
+      outline: none;
+      text-align: center;
+  
+      background-image: url('../../assets/lupa.png');
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 20px;
+    }
+  
+    .search-bar::placeholder {
+      font-style: italic;
+      font-size: 16px;
+      text-align: center;
+      color: #999999;
+      font-weight: 200;
+    }
+  
+    .name-container {
+      display: flex;
+      margin-bottom: -105px;
+    }
+  
+    .left-name,
+    .right-name {
+      width: 48%;
+      font-weight: 500;
+      font-size: 22px;
+      color: #0066b8;
+    }
+  
+    .error-message {
+      text-align: center;
+      font-size: 22px;
+      color: red;
+      font-weight: 500;
+      margin-top: 90px;
+    
+      // Style for the <br> tag
+      br {
+        content: '';
+        display: block;
+        margin-bottom: 10px; // Adjust this value to control the space between lines
+      }
+  
+      .spaceBetween{
+        margin-top: 30px;
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .name-container {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0;
+      }
+  
+      .name-with-description-client,
+      .name-with-description-valor,
+      .name-with-description-data,
+      .name-with-description-situacao {
+        margin: 0;
+        margin-top: 30px;
+      }
+  
+      .search-bar {
+        margin-bottom: 50px;
+      }
+  
+      .description {
+        margin-top: 0;
+      }
+  
+      .left-name,
+      .right-name {
+        width: 100%;
+      }
+  
+      .name-with-description-client {
+        order: 1;
+      }
+  
+      .name-with-description-situacao {
+        order: 2;
+      }
+  
+      .name-with-description-data {
+        order: 3;
+      }
+  
+      .name-with-description-valor {
+        display: none;
+      }
+  
+      .error-message {
+        margin-top: 20px;
+      }
+    }
+  }

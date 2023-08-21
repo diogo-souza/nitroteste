@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 
 //Importing SCSS Style
-import './SearchPage.scss';
+import './SearchPageBasic.scss';
 
 //Importing Logo
-import logoRoxa from '../assets/logo_roxa.png';
+import logo from '../../assets/logo.png';
 
 //Importing Json Data
-import dados from '../data/dados.json';
+import dados from '../../data/dados.json';
 
 //Importing Data Formater
-import DataFormatter from '../components/DataFormatter';
+import DataFormatter from '../../components/DataFormatter';
 
-function SearchPage() {
+function SearchPageBasic() {
 
     const [searchValue, setSearchValue] = useState('');
     const [foundOrder, setFoundOrder] = useState(null);
@@ -24,8 +24,8 @@ function SearchPage() {
 
     return (
         <div>
-            <div className="container">
-                <img src={logoRoxa} alt="Imagem" className="image" />
+            <div className="containerBasic">
+                <img src={logo} alt="Imagem" className="image" />
                 <p className="above-search">Consulte sua encomenda:</p>
                 <input
                     type='text'
@@ -98,4 +98,4 @@ function SearchPage() {
         </div>
     )
 }
-export default SearchPage;
+export default SearchPageBasic;
