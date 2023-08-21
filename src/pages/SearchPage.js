@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 //Importing SCSS Style
 import './SearchPage.scss';
-
+//
 //Importing Logo
 import logo from '../assets/logo_roxa.png';
 
