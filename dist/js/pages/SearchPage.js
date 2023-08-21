@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 //Importing SCSS Style
 import './SearchPage.scss';
-
+//
 //Importing Logo
-import logo from '../assets/logo.png';
+import logo from '../assets/logo_roxa.png';
 
 //Importing Json Data
 import dados from '../data/dados.json';
@@ -12,8 +12,11 @@ import dados from '../data/dados.json';
 //Importing Data Formater
 import DataFormatter from '../components/DataFormatter';
 function SearchPage() {
+  //Todos os estados utilizados
   const [searchValue, setSearchValue] = useState('');
   const [foundOrder, setFoundOrder] = useState(null);
+
+  //Função que filtra os resultados da API pelo número do pedido
   const handleSearch = () => {
     const orderToFind = dados.encomendas.find(order => order.numero === searchValue);
     setFoundOrder(orderToFind);
