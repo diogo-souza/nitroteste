@@ -7,7 +7,7 @@
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Or else, to just open the App deployed on [Netlify](https://www.netlify.com/), click on this link -> (https://main--stellular-praline-b2f215.netlify.app/)
+Or else, to just open the App deployed on [Netlify](https://www.netlify.com/), click on this link -> ([https://main--stellular-praline-b2f215.netlify.app/](https://develop--stellular-praline-b2f215.netlify.app/))
 
 ### This project was made with React 18, using `HTML` `SCSS` `Grunt` `Responsive Design` `Data API Consume` 
 
