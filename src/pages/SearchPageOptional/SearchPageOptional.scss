@@ -1,0 +1,208 @@
+.containerOptional {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+
+    .above-search {
+        font-size: 16px;
+        color: #00669f;
+        margin-bottom: 10px;
+        font-weight: 700;
+        font-style: italic;
+    }
+
+    .name-with-description-client,
+    .name-with-description-valor,
+    .name-with-description-data,
+    .name-with-description-situacao {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 80px 0;
+        margin-right: -70px;
+        margin-left: -60px;
+        width: 405px;
+    }
+
+    .description {
+        font-size: 16px;
+        color: #0088d1;
+        margin-top: 5px;
+        font-style: italic;
+    }
+
+    .image {
+        margin-bottom: 50px;
+    }
+
+    .search-bar {
+        border: 3px solid #a6ce26;
+        border-radius: 20px;
+        padding: 5px;
+        width: 80%;
+        max-width: 300px;
+        font-size: 16px;
+        color: #333;
+        outline: none;
+        text-align: center;
+
+        background-image: url('../../assets/lupa.png');
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 20px;
+    }
+
+    .search-bar::placeholder {
+        font-style: italic;
+        font-size: 16px;
+        text-align: center;
+        color: #999999;
+        font-weight: 200;
+    }
+
+    .name-container {
+        display: flex;
+        margin-bottom: -105px;
+    }
+
+    .left-name,
+    .right-name {
+        width: 48%;
+        font-weight: 500;
+        font-size: 22px;
+        color: #0066b8;
+    }
+
+    .error-message {
+        text-align: center;
+        font-size: 22px;
+        color: red;
+        font-weight: 500;
+
+        br {
+            content: '';
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .spaceBetween {
+            margin-top: 30px;
+        }
+    }
+
+    .success-message {
+        text-align: center;
+        font-size: 22px;
+        color: green;
+        font-weight: 600;
+    }
+
+    .email-button {
+        background-color: transparent;
+        border: 2px solid #00669f;
+        color: #00669f;
+        padding: 8px 16px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+        width: max-content;
+        margin: 80px auto 0;
+        display: block;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 600;
+
+        &:hover {
+            background-color: #00669f;
+            color: white;
+        }
+    }
+
+    .loading-screen {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.8);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #000;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        p {
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    }
+
+    //Responsividade abaixo  
+    @media (max-width: 768px) {
+        .name-container {
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 0;
+        }
+
+        .name-with-description-client,
+        .name-with-description-valor,
+        .name-with-description-data,
+        .name-with-description-situacao {
+            margin: 0;
+            margin-top: 30px;
+        }
+
+        .search-bar {
+            margin-bottom: 50px;
+        }
+
+        .description {
+            margin-top: 0;
+        }
+
+        .left-name,
+        .right-name {
+            width: 100%;
+        }
+
+        .name-with-description-client {
+            order: 1;
+        }
+
+        .name-with-description-situacao {
+            order: 2;
+        }
+
+        .name-with-description-data {
+            order: 3;
+        }
+
+        .name-with-description-valor {
+            display: none;
+        }
+
+        .error-message {
+            margin-top: 20px;
+        }
+    }
+}

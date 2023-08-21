@@ -1,4 +1,4 @@
-.container {
+.containerBasic {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +8,7 @@
 
   .above-search {
     font-size: 16px;
-    color: #c921d3;
+    color: #00669f;
     margin-bottom: 10px;
     font-weight: 700;
     font-style: italic;
@@ -39,7 +39,7 @@
   }
 
   .search-bar {
-    border: 3px solid #c921d3;
+    border: 3px solid #a6ce26;
     border-radius: 20px;
     padding: 5px;
     width: 80%;
@@ -49,7 +49,7 @@
     outline: none;
     text-align: center;
 
-    background-image: url('../assets/lupa_roxa.png');
+    background-image: url('../../assets/lupa.png');
     background-repeat: no-repeat;
     background-position: right 12px center;
     background-size: 20px;
@@ -94,7 +94,6 @@
     }
   }
 
-  //Responsividade abaixo
   @media (max-width: 768px) {
     .name-container {
       flex-direction: column;
